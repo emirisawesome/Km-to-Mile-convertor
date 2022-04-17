@@ -7,17 +7,27 @@ int main() {
 
 	system("chcp 1251>nul");
 	
+	const int ftInMile = 5280;
 	const double kmInMile = 1.609344;
 
-	double distKm,distMile;
+	int dMile, dFt, dKm, dM;
 
-	cout << "Укажите расстояние в милях: ";
+	cout << "Расстояние в милях и футах:" << endl;
+	cout << "Мили: ";
+	cin >> dMile;
+	cout << "Футы: ";
+	cin >> dFt;
 
-	cin >> distMile;
+	double distMile = dMile + (double)dFt / ftInMile;
+	double distKm = distMile * kmInMile;
 
-	distKm = distMile * kmInMile;
-	
-	cout << "Расстояние в км: " << distKm << endl;
+	dKm = (int)distKm;
+	dM = (int)((distKm - dKm) * 1000);
+
+	cout << "расстояние в километрах и метрах. " << endl;
+
+	cout << "километры: " << dKm << endl;
+	cout << "метры: " << dM << endl;
 
 	system("pause>nul");
 	return 0;
